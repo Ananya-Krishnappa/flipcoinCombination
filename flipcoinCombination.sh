@@ -6,6 +6,7 @@ do
 	coinFace=HH
 	Flip=$(($(($RANDOM%10))%2))
 	Flip1=$(($(($RANDOM%10))%2))
+	Flip2=$(($(($RANDOM%10))%2))
 	if [ $Flip -eq 1 ]
 	then
    	coinFace=H
@@ -18,6 +19,12 @@ do
 	else
 		coinFace=$coinFace"T"
 	fi
+   if [ $Flip2 -eq 1 ]
+   then
+      coinFace=$coinFace"H"
+   else
+      coinFace=$coinFace"T"
+   fi
 	coinsDict[$coinFace]=$((${coinsDict[$coinFace]}+1))
 done
 for coins in ${!coinsDict[@]}
